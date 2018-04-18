@@ -1,0 +1,25 @@
+<p>
+  <strong>Title:</strong>
+  <%= @order.name %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @order.store_location %>
+</p>
+
+<p>
+<strong>Created At: <%= @order.created_at %></strong>
+</p>
+
+<% @order.items.each do |item |%>
+  <p>
+    <strong>Item Name: </strong>
+    <%= item.name %>
+  </p>
+  <p>
+    <strong>Item Price: </strong>
+    <%= item.price %>
+  </p>
+<% end %>
+

@@ -1,0 +1,30 @@
+<h1>New Order</h1>
+
+<%= form_with scope: :order, url: orders_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :store_loction %><br>
+    <%= form.text_field :store_location %>
+  </p>
+  
+  <% @items.each do |item| %>
+    <%= fields_for 'items[]', item do |f| %>
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label :price %>
+        <%= f.text_field :price %>
+      </p>
+    <% end %>
+  <% end %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
